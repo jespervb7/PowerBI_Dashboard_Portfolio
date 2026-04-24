@@ -9,6 +9,26 @@ table Games
 
 		changedProperty = Name
 
+	measure 'Total games escaped' = CALCULATE([Total games], 'Game Info'[Did Escape] = TRUE())
+		formatString: 0
+		lineageTag: ed690608-85e4-46e4-b708-b4ca29f4a838
+
+	measure 'Escape rate' =
+			DIVIDE(
+						[Total games escaped],
+						[Total games]
+					)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: c635f590-d0ff-4024-a8a9-34a328c9ee41
+
+		changedProperty = FormatString
+
+	measure 'Total bloodpoints' = CALCULATE(SUM(Games[Blood Points]), 'Game Info'[Is Valid Game] = TRUE())
+		formatString: 0
+		lineageTag: 78300f28-25e2-4d3b-8cfb-63705eca5369
+
+		changedProperty = Name
+
 	column 'Survivor Key'
 		dataType: int64
 		isHidden
