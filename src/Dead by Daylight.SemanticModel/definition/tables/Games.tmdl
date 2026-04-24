@@ -1,0 +1,160 @@
+/// This table contains a record for each played Dead by Daylight game. These can vary from regular online matches, solo queues or competitive tournament matches.
+table Games
+	lineageTag: 05cd43fe-b272-4664-9cf5-84f4efa446f2
+	sourceLineageTag: [facts].[fact_games]
+
+	measure 'Total games' = COUNTROWS(Games)
+		formatString: 0
+		lineageTag: 178de2e8-35aa-43bd-aeae-408f9c9c6d51
+
+		changedProperty = Name
+
+	column 'Survivor Key'
+		dataType: int64
+		isHidden
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: ef5dbbd8-173b-4f72-981d-b4bba6ddc260
+		sourceLineageTag: survivor_key
+		summarizeBy: none
+		sourceColumn: survivor_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Killer Key'
+		dataType: int64
+		isHidden
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: 48029d42-a3f7-40fd-9ced-4762f40cdf10
+		sourceLineageTag: killer_key
+		summarizeBy: none
+		sourceColumn: killer_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Map Key'
+		dataType: int64
+		isHidden
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: 5b0883db-bd2c-4428-ab01-31b55dea2d0a
+		sourceLineageTag: map_key
+		summarizeBy: none
+		sourceColumn: map_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Item Key'
+		dataType: int64
+		isHidden
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: 29887b30-e9c0-4ee3-85b9-4b1eea7c7875
+		sourceLineageTag: item_key
+		summarizeBy: none
+		sourceColumn: item_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Addon Key'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2686a7f6-c8c2-48b3-9d6c-fcb43266957c
+		sourceLineageTag: addon_key
+		summarizeBy: none
+		sourceColumn: addon_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Game Info Key'
+		dataType: int64
+		isHidden
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: c2ae9a72-206b-46ec-abd0-544b956bf135
+		sourceLineageTag: game_info_key
+		summarizeBy: none
+		sourceColumn: game_info_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Personal Hook Stages'
+		dataType: int64
+		formatString: 0
+		lineageTag: 0e1ad340-17cc-4ac6-8d7f-0ef3905b2fd4
+		sourceLineageTag: personal_hook_stages
+		summarizeBy: none
+		sourceColumn: personal_hook_stages
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Team Hook Stages'
+		dataType: int64
+		formatString: 0
+		lineageTag: 6678cbf0-905a-4ced-910c-e2eff35c21ab
+		sourceLineageTag: team_hook_stages
+		summarizeBy: none
+		sourceColumn: team_hook_stages
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fresh Hooks'
+		dataType: int64
+		formatString: 0
+		lineageTag: 78d85c1c-cd82-4377-951a-31c093ea073d
+		sourceLineageTag: fresh_hooks
+		summarizeBy: none
+		sourceColumn: fresh_hooks
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Amount Of Survivors Escaped'
+		dataType: int64
+		formatString: 0
+		lineageTag: 7af89664-ad81-4ee7-accf-e79e295491f3
+		sourceLineageTag: amount_of_survivors_escaped
+		summarizeBy: none
+		sourceColumn: amount_of_survivors_escaped
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Generators Completed'
+		dataType: int64
+		formatString: 0
+		lineageTag: a0266f7a-4fb7-429f-826b-ef28813d6d63
+		sourceLineageTag: generators_completed
+		summarizeBy: none
+		sourceColumn: generators_completed
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Blood Points'
+		dataType: int64
+		formatString: 0
+		lineageTag: 54dbf10e-7c67-42cf-a42e-1e54abce1aa1
+		sourceLineageTag: blood_points
+		summarizeBy: none
+		sourceColumn: blood_points
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Date Played Key'
+		dataType: int64
+		isHidden
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: e490dfa5-acf2-4452-a076-1a5402601679
+		sourceLineageTag: date_played_key
+		summarizeBy: none
+		sourceColumn: date_played_key
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Games = entity
+		mode: directLake
+		source
+			entityName: fact_games
+			schemaName: facts
+			expressionSource: 'DirectLake - jesper_gold_warehouse'
+

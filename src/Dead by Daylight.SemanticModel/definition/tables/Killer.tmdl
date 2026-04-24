@@ -1,0 +1,34 @@
+table Killer
+	lineageTag: f91526b4-6adf-4f76-89ce-21b8d4b4891f
+	sourceLineageTag: [dims].[dim_killer]
+
+	column 'Killer Key'
+		dataType: int64
+		isHidden
+		isKey
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: fd309b66-2814-438b-b55b-fd9415de22ce
+		sourceLineageTag: killer_key
+		isDefaultLabel
+		summarizeBy: none
+		sourceColumn: killer_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Killer Ingame Name'
+		dataType: string
+		lineageTag: 5f916274-e8f3-4258-9eb8-253d99a4cfdd
+		sourceLineageTag: killer_ingame_name
+		summarizeBy: none
+		sourceColumn: killer_ingame_name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Killer = entity
+		mode: directLake
+		source
+			entityName: dim_killer
+			schemaName: dims
+			expressionSource: 'DirectLake - jesper_gold_warehouse'
+

@@ -1,0 +1,24 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-GB
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["DirectLake - jesper_gold_warehouse"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["RemoteModeling","DirectLakeOnOneLakeCreatedInDesktop","DaxQueryView_Desktop"]
+
+annotation __TEdtr = 1
+
+ref table Games
+ref table 'Game Info'
+ref table Survivor
+ref table Map
+ref table Killer
+ref table Item
+ref table Date
+

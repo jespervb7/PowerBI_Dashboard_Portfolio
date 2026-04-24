@@ -1,0 +1,24 @@
+relationship 19a2bfd6-1870-40bf-9a2d-b4783a958c3f
+	fromColumn: Games.'Survivor Key'
+	toColumn: Survivor.'Survivor Key'
+
+relationship c075e26c-1b72-4928-a5c2-8905099f95c6
+	fromColumn: Games.'Killer Key'
+	toColumn: Killer.'Killer Key'
+
+relationship 28b73491-6480-4274-b575-89e1b7f8e388
+	fromColumn: Games.'Map Key'
+	toColumn: Map.'Map Key'
+
+relationship 8c15713d-299f-4385-bce4-022171c775f6
+	fromColumn: Games.'Item Key'
+	toColumn: Item.'Item Key'
+
+relationship 12a353d7-a86c-41f8-a018-4687b7bc6c56
+	fromColumn: Games.'Game Info Key'
+	toColumn: 'Game Info'.'Game Info Key'
+
+relationship f7aa0c5b-8bf1-f563-8782-5fea604fe27d
+	fromColumn: Games.'Date Played Key'
+	toColumn: Date.'Date Key'
+

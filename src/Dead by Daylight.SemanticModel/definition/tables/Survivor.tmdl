@@ -1,0 +1,34 @@
+table Survivor
+	lineageTag: f2666e4c-adab-4f39-8c10-9977687d8456
+	sourceLineageTag: [dims].[dim_survivor]
+
+	column 'Survivor Key'
+		dataType: int64
+		isHidden
+		isKey
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: 306bca57-1243-4410-a714-8f39e13457ad
+		sourceLineageTag: survivor_key
+		isDefaultLabel
+		summarizeBy: none
+		sourceColumn: survivor_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Survivor Ingame Name'
+		dataType: string
+		lineageTag: 9ffaaa74-c5b6-42dc-bbec-7891252dc886
+		sourceLineageTag: survivor_ingame_name
+		summarizeBy: none
+		sourceColumn: survivor_ingame_name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Survivor = entity
+		mode: directLake
+		source
+			entityName: dim_survivor
+			schemaName: dims
+			expressionSource: 'DirectLake - jesper_gold_warehouse'
+

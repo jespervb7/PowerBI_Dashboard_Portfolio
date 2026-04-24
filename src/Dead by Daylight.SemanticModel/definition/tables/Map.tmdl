@@ -1,0 +1,56 @@
+table Map
+	lineageTag: 73dc4631-e50c-421a-aaa2-fb158b02a531
+	sourceLineageTag: [dims].[dim_map]
+
+	column 'Map Key'
+		dataType: int64
+		isHidden
+		isKey
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: 744f9402-d59d-48b0-ab02-dbdbad53c198
+		sourceLineageTag: map_key
+		isDefaultLabel
+		summarizeBy: none
+		sourceColumn: map_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Map Ingame Name'
+		dataType: string
+		lineageTag: a7cc724b-5fa2-4ff7-9586-2172d89f788c
+		sourceLineageTag: map_ingame_name
+		summarizeBy: none
+		sourceColumn: map_ingame_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Map Realm'
+		dataType: string
+		lineageTag: 5965c6d2-e7c9-4e47-92ca-2b5a2822152d
+		sourceLineageTag: map_realm
+		summarizeBy: none
+		sourceColumn: map_realm
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'Map hierarchy'
+		lineageTag: f23188a0-79f0-4878-865e-ffb38d2182b6
+
+		level 'Map Realm'
+			lineageTag: 98f2ec70-f51d-4190-a5be-cf19d8e21aac
+			column: 'Map Realm'
+
+		level 'Map Ingame Name'
+			lineageTag: 3b7f9874-61f1-44ca-a646-eb8104ac7438
+			column: 'Map Ingame Name'
+
+		changedProperty = Name
+
+	partition Map = entity
+		mode: directLake
+		source
+			entityName: dim_map
+			schemaName: dims
+			expressionSource: 'DirectLake - jesper_gold_warehouse'
+

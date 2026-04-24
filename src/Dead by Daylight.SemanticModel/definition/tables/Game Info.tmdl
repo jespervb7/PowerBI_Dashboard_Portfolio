@@ -1,0 +1,113 @@
+/// This table holds info related to each game that's played. Things like, did we escape, did the killer ragequit or any other useful grouping that you may want! Lot's of flags in this table to use in interesting ways
+table 'Game Info'
+	lineageTag: a08124b8-8f1e-4a2c-9be3-ad5d1bf13a6d
+	sourceLineageTag: [dims].[dim_game_info]
+
+	column 'Game Info Key'
+		dataType: int64
+		isHidden
+		isKey
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: b15c6e79-7d12-4265-92b4-4735c8eb5ee9
+		sourceLineageTag: game_info_key
+		isDefaultLabel
+		summarizeBy: none
+		sourceColumn: game_info_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Escaped Through Hatch'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 16a4381e-7217-43b9-b6b6-91c4011899c4
+		sourceLineageTag: escaped_through_hatch
+		summarizeBy: none
+		sourceColumn: escaped_through_hatch
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Did Killer Quit'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 690469f9-25f8-4656-8fe1-ee524729c326
+		sourceLineageTag: did_killer_quit
+		summarizeBy: none
+		sourceColumn: did_killer_quit
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Was Killer Farming'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 074ff362-c6b9-49dd-b0fc-bf039f55a98f
+		sourceLineageTag: was_killer_farming
+		summarizeBy: none
+		sourceColumn: was_killer_farming
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Did Game Have Cheater'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: f3617dba-284b-4a0c-8821-28ccf82775f8
+		sourceLineageTag: did_game_have_cheater
+		summarizeBy: none
+		sourceColumn: did_game_have_cheater
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Game Mode'
+		dataType: string
+		lineageTag: fefceb8a-6707-48aa-b6ea-6f64c68dde0c
+		sourceLineageTag: game_mode
+		summarizeBy: none
+		sourceColumn: game_mode
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Game Type'
+		dataType: string
+		lineageTag: 21a99c87-fd79-4823-847c-916a90f40a63
+		sourceLineageTag: game_type
+		summarizeBy: none
+		sourceColumn: game_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Game Result'
+		dataType: string
+		lineageTag: 44cab4cc-4e16-424d-90c2-50cefa9ec9d6
+		sourceLineageTag: game_result
+		summarizeBy: none
+		sourceColumn: game_result
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Did Escape'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 1d4eca3c-af42-433e-9c29-4a93d03beb13
+		sourceLineageTag: did_escape
+		summarizeBy: none
+		sourceColumn: did_escape
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Is Valid Game'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: ec406f87-a2e3-43f2-8738-668c2c47c514
+		sourceLineageTag: is_valid_game
+		summarizeBy: none
+		sourceColumn: is_valid_game
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Game Info' = entity
+		mode: directLake
+		source
+			entityName: dim_game_info
+			schemaName: dims
+			expressionSource: 'DirectLake - jesper_gold_warehouse'
+

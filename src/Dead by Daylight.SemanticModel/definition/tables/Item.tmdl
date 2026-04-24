@@ -1,0 +1,43 @@
+table Item
+	lineageTag: 8d8ddf87-0db2-4f4e-ae36-4c94bc2792bb
+	sourceLineageTag: [dims].[dim_item]
+
+	column 'Item Key'
+		dataType: int64
+		isHidden
+		isKey
+		formatString: 0
+		isAvailableInMdx: false
+		lineageTag: 0bd32fa7-8d0e-420e-b90f-ce0904bede72
+		sourceLineageTag: item_key
+		isDefaultLabel
+		summarizeBy: none
+		sourceColumn: item_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Item Ingame Name'
+		dataType: string
+		lineageTag: 22b342bd-0487-4dd9-8298-7eef53c0aeee
+		sourceLineageTag: item_ingame_name
+		summarizeBy: none
+		sourceColumn: item_ingame_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Item Name'
+		dataType: string
+		lineageTag: 98fcca50-11b7-463f-9171-fbd17c588e0f
+		sourceLineageTag: item_name
+		summarizeBy: none
+		sourceColumn: item_name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Item = entity
+		mode: directLake
+		source
+			entityName: dim_item
+			schemaName: dims
+			expressionSource: 'DirectLake - jesper_gold_warehouse'
+
