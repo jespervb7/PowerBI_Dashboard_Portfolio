@@ -1,0 +1,49 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/orgapp/definition/orgAppDefinition/1.0.0/schema.json",
+  "settings": {
+    "experienceSettings": {
+      "navigationPane": {
+        "isHidden": false,
+        "isCollapsed": false,
+        "independentPageNavigation": true
+      }
+    }
+  },
+  "elements": [
+    {
+      "elementType": "link",
+      "elementId": "a6fd998b-6db4-427f-bd0f-4a8c96419fcc",
+      "url": "https://jespervb7.github.io/jespers-second-brain/",
+      "linkType": "embedded",
+      "displayName": "Jespers documentation website"
+    },
+    {
+      "elementType": "section",
+      "elementId": "5ab368cb-4b92-422d-9ab3-dd28f6c94ec1",
+      "elements": [
+        {
+          "elementType": "item",
+          "elementId": "7e6f3299-75de-4478-8ee0-e5345b80d4a6",
+          "itemType": "Report",
+          "itemLogicalId": "493dd8c9-dd13-408c-a74a-2ba5a4de4d04",
+          "displayName": "Dead By Daylight statistics overview"
+        }
+      ],
+      "displayName": "Games"
+    },
+    {
+      "elementType": "link",
+      "elementId": "08e75595-1792-4c27-8d35-b920a4024458",
+      "url": "https://www.appsheet.com/start/8c034f1e-9ad3-48f7-9e76-51f98238939a?platform=desktop#appName=DeadByDaylightgametracker-637574127&vss=H4sIAAAAAAAAA6WOvQrCMBRGX0W-OU-QTcRBRBfFxTjE5rYE26Q0qVpC3t1bf9BVHe93OYeTcLZ02URdnCD36X0taYBEUtgOLSlIhZl3sfO1glBY6-YxTo2xrppUfAeFjHwQL0ekAJm-V8j_KwSsIRdtaakbfSPNnifL75Hk4ZNDFmj6qI813eOZy5m30hd9ILPjpB9TwsLNr612ZuUNa0tdB8o3qLcPknkBAAA=&view=Adding%20games",
+      "linkType": "newtab",
+      "displayName": "ttest"
+    },
+    {
+      "elementType": "item",
+      "elementId": "898de76e-b879-4d8d-8d39-d4a2f95d80a1",
+      "itemType": "SemanticModel",
+      "itemLogicalId": "017725b7-9326-8556-48ca-b2fcbb6638e8",
+      "displayName": "7e6f3299-75de-4478-8ee0-e5345b80d4a6"
+    }
+  ]
+}

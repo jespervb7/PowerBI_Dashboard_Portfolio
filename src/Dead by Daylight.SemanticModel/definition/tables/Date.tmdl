@@ -294,6 +294,23 @@ table Date
 
 		annotation SummarizationSetBy = Automatic
 
+	hierarchy 'Year to month hierarchy'
+		lineageTag: 9f9b4d93-0aa1-45a2-9564-d1f735f782f0
+
+		level Year
+			lineageTag: fdc3b21e-a513-4d57-824a-6936c37a1d50
+			column: Year
+
+		level Quarter
+			lineageTag: 3931d494-10b5-4614-8a74-339d116f35d9
+			column: Quarter
+
+		level 'Month Name'
+			lineageTag: 840c296b-0a2a-474c-a4c8-9428a99dbfe9
+			column: 'Month Name'
+
+		changedProperty = Name
+
 	partition Date = entity
 		mode: directLake
 		source

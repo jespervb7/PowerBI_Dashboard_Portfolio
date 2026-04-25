@@ -23,6 +23,22 @@
             }
           }
         }
+      ],
+      "pages": [
+        {
+          "properties": {
+            "showPage": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "c8c979ea7d3d70e0e92d"
+          }
+        }
       ]
     },
     "visualContainerObjects": {

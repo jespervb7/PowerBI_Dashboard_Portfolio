@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "OrgApp",
+    "displayName": "Jesper's dashboards",
+    "description": "This app contains the dashboards that Jesper uses in daily life."
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "414cb536-6acc-b9d3-49cf-9ed7bcba039d"
+  }
+}
