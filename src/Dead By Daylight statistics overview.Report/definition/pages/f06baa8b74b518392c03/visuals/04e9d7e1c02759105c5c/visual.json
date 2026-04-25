@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "04e9d7e1c02759105c5c",
   "position": {
-    "x": 79.001721170395868,
-    "y": 47.401032702237522,
+    "x": 40,
+    "y": 100,
     "z": 0,
-    "height": 296.48881239242684,
-    "width": 1764.0619621342512
+    "height": 300.16620498614958,
+    "width": 1840
   },
   "visual": {
     "visualType": "cardVisual",
@@ -77,6 +77,38 @@
         ],
         "isDefaultSort": true
       }
+    },
+    "objects": {
+      "referenceLabel": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Games"
+                    }
+                  },
+                  "Property": "Total games escaped"
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 0
+                }
+              }
+            ],
+            "metadata": "Games.Total games",
+            "id": "field-ff9305a0-9ed9-27a5-7336-42e9eeab5c52",
+            "order": 0
+          }
+        }
+      ]
     },
     "visualContainerObjects": {
       "title": [

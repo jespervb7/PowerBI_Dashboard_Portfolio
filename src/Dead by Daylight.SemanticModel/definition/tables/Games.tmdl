@@ -3,14 +3,18 @@ table Games
 	lineageTag: 05cd43fe-b272-4664-9cf5-84f4efa446f2
 	sourceLineageTag: [facts].[fact_games]
 
-	measure 'Total games' = COUNTROWS(Games)
-		formatString: 0
+	measure 'Total games' = COUNTROWS ( Games )
+		formatString: #,0
 		lineageTag: 178de2e8-35aa-43bd-aeae-408f9c9c6d51
 
 		changedProperty = Name
 
-	measure 'Total games escaped' = CALCULATE([Total games], 'Game Info'[Did Escape] = TRUE())
-		formatString: 0
+	measure 'Total games escaped' =
+			CALCULATE (
+			    [Total games],
+			    'Game Info'[Did Escape] = TRUE ()
+			)
+		formatString: #,0
 		lineageTag: ed690608-85e4-46e4-b708-b4ca29f4a838
 
 	measure 'Escape rate' =
@@ -18,16 +22,36 @@ table Games
 						[Total games escaped],
 						[Total games]
 					)
-		formatString: 0.0%;-0.0%;0.0%
+		formatString: #,0.0%;-#,0.0%;#,0.0%
 		lineageTag: c635f590-d0ff-4024-a8a9-34a328c9ee41
 
 		changedProperty = FormatString
 
-	measure 'Total bloodpoints' = CALCULATE(SUM(Games[Blood Points]), 'Game Info'[Is Valid Game] = TRUE())
-		formatString: 0
+	measure 'Total bloodpoints' =
+			CALCULATE (
+			    SUM ( Games[Blood Points] ),
+			    'Game Info'[Is Valid Game] = TRUE ()
+			)
+		formatString: #,0
 		lineageTag: 78300f28-25e2-4d3b-8cfb-63705eca5369
 
 		changedProperty = Name
+
+	measure 'Total hook stages' = CALCULATE(SUM(Games[Team Hook Stages]), 'Game Info'[Is Valid Game] = TRUE())
+		formatString: #,0
+		lineageTag: 9ebb20b5-0558-42d6-b734-d185b4be1371
+
+	measure 'Total personal hook stages' = CALCULATE(SUM(Games[Personal Hook Stages]), 'Game Info'[Is Valid Game] = TRUE())
+		formatString: #,0
+		lineageTag: ba5fac8a-cf75-4507-ae64-4ac35117c2cf
+
+	measure 'Total generators completed' = CALCULATE(SUM(Games[Generators Completed]), 'Game Info'[Is Valid Game] = TRUE())
+		formatString: #,0
+		lineageTag: 3408212a-f3f0-4392-ae54-34a0147d3bdf
+
+	measure 'Total fresh hooks' = CALCULATE(SUM(Games[Fresh Hooks]), 'Game Info'[Is Valid Game] = TRUE())
+		formatString: #,0
+		lineageTag: 55543e82-9f57-42b3-b6de-80dd1f386d70
 
 	column 'Survivor Key'
 		dataType: int64
@@ -101,7 +125,9 @@ table Games
 
 	column 'Personal Hook Stages'
 		dataType: int64
+		isHidden
 		formatString: 0
+		isAvailableInMdx: false
 		lineageTag: 0e1ad340-17cc-4ac6-8d7f-0ef3905b2fd4
 		sourceLineageTag: personal_hook_stages
 		summarizeBy: none
@@ -111,7 +137,9 @@ table Games
 
 	column 'Team Hook Stages'
 		dataType: int64
+		isHidden
 		formatString: 0
+		isAvailableInMdx: false
 		lineageTag: 6678cbf0-905a-4ced-910c-e2eff35c21ab
 		sourceLineageTag: team_hook_stages
 		summarizeBy: none
@@ -121,7 +149,9 @@ table Games
 
 	column 'Fresh Hooks'
 		dataType: int64
+		isHidden
 		formatString: 0
+		isAvailableInMdx: false
 		lineageTag: 78d85c1c-cd82-4377-951a-31c093ea073d
 		sourceLineageTag: fresh_hooks
 		summarizeBy: none
@@ -141,7 +171,9 @@ table Games
 
 	column 'Generators Completed'
 		dataType: int64
+		isHidden
 		formatString: 0
+		isAvailableInMdx: false
 		lineageTag: a0266f7a-4fb7-429f-826b-ef28813d6d63
 		sourceLineageTag: generators_completed
 		summarizeBy: none
@@ -151,7 +183,9 @@ table Games
 
 	column 'Blood Points'
 		dataType: int64
+		isHidden
 		formatString: 0
+		isAvailableInMdx: false
 		lineageTag: 54dbf10e-7c67-42cf-a42e-1e54abce1aa1
 		sourceLineageTag: blood_points
 		summarizeBy: none
