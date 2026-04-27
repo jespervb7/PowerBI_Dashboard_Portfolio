@@ -311,7 +311,7 @@ table Date
 
 		changedProperty = Name
 
-	partition Date = entity
+	partition dim_date = entity
 		mode: directLake
 		source
 			entityName: dim_date

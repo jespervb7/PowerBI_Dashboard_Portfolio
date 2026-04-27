@@ -20,8 +20,11 @@ table Item
 		dataType: string
 		lineageTag: 22b342bd-0487-4dd9-8298-7eef53c0aeee
 		sourceLineageTag: item_ingame_name
+		dataCategory: ImageUrl
 		summarizeBy: none
 		sourceColumn: item_ingame_name
+
+		changedProperty = DataCategory
 
 		annotation SummarizationSetBy = Automatic
 
@@ -34,7 +37,7 @@ table Item
 
 		annotation SummarizationSetBy = Automatic
 
-	partition Item = entity
+	partition dim_item = entity
 		mode: directLake
 		source
 			entityName: dim_item

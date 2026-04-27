@@ -2,6 +2,14 @@ table Killer
 	lineageTag: f91526b4-6adf-4f76-89ce-21b8d4b4891f
 	sourceLineageTag: [dims].[dim_killer]
 
+	measure 'killer image Measure' = MAX(Killer[Killer Image])
+		lineageTag: a0a61af7-ac3b-4c0f-b1b8-d88490ecebc0
+		dataCategory: ImageUrl
+
+		changedProperty = Name
+
+		changedProperty = DataCategory
+
 	column 'Killer Key'
 		dataType: int64
 		isHidden
@@ -25,7 +33,16 @@ table Killer
 
 		annotation SummarizationSetBy = Automatic
 
-	partition Killer = entity
+	column 'Killer Image'
+		dataType: string
+		lineageTag: 342b2e2b-53e0-490b-bcbc-4353ee5e19cb
+		sourceLineageTag: killer_image
+		summarizeBy: none
+		sourceColumn: killer_image
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_killer = entity
 		mode: directLake
 		source
 			entityName: dim_killer

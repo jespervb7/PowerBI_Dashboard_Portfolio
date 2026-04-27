@@ -3,7 +3,7 @@ table Games
 	lineageTag: 05cd43fe-b272-4664-9cf5-84f4efa446f2
 	sourceLineageTag: [facts].[fact_games]
 
-	measure 'Total games' = COUNTROWS ( Games )
+	measure 'Total games' = COUNTROWS ( 'Games' )
 		formatString: #,0
 		lineageTag: 178de2e8-35aa-43bd-aeae-408f9c9c6d51
 
@@ -29,7 +29,7 @@ table Games
 
 	measure 'Total bloodpoints' =
 			CALCULATE (
-			    SUM ( Games[Blood Points] ),
+			    SUM ( 'Games'[Blood Points] ),
 			    'Game Info'[Is Valid Game] = TRUE ()
 			)
 		formatString: #,0
@@ -37,19 +37,19 @@ table Games
 
 		changedProperty = Name
 
-	measure 'Total hook stages' = CALCULATE(SUM(Games[Team Hook Stages]), 'Game Info'[Is Valid Game] = TRUE())
+	measure 'Total hook stages' = CALCULATE(SUM('Games'[Team Hook Stages]), 'Game Info'[Is Valid Game] = TRUE())
 		formatString: #,0
 		lineageTag: 9ebb20b5-0558-42d6-b734-d185b4be1371
 
-	measure 'Total personal hook stages' = CALCULATE(SUM(Games[Personal Hook Stages]), 'Game Info'[Is Valid Game] = TRUE())
+	measure 'Total personal hook stages' = CALCULATE(SUM('Games'[Personal Hook Stages]), 'Game Info'[Is Valid Game] = TRUE())
 		formatString: #,0
 		lineageTag: ba5fac8a-cf75-4507-ae64-4ac35117c2cf
 
-	measure 'Total generators completed' = CALCULATE(SUM(Games[Generators Completed]), 'Game Info'[Is Valid Game] = TRUE())
+	measure 'Total generators completed' = CALCULATE(SUM('Games'[Generators Completed]), 'Game Info'[Is Valid Game] = TRUE())
 		formatString: #,0
 		lineageTag: 3408212a-f3f0-4392-ae54-34a0147d3bdf
 
-	measure 'Total fresh hooks' = CALCULATE(SUM(Games[Fresh Hooks]), 'Game Info'[Is Valid Game] = TRUE())
+	measure 'Total fresh hooks' = CALCULATE(SUM('Games'[Fresh Hooks]), 'Game Info'[Is Valid Game] = TRUE())
 		formatString: #,0
 		lineageTag: 55543e82-9f57-42b3-b6de-80dd1f386d70
 
@@ -205,7 +205,7 @@ table Games
 
 		annotation SummarizationSetBy = Automatic
 
-	partition Games = entity
+	partition fact_games = entity
 		mode: directLake
 		source
 			entityName: fact_games

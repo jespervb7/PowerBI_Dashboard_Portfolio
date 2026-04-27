@@ -104,7 +104,7 @@ table 'Game Info'
 
 		annotation SummarizationSetBy = Automatic
 
-	partition 'Game Info' = entity
+	partition dim_game_info = entity
 		mode: directLake
 		source
 			entityName: dim_game_info

@@ -47,7 +47,7 @@ table Map
 
 		changedProperty = Name
 
-	partition Map = entity
+	partition dim_map = entity
 		mode: directLake
 		source
 			entityName: dim_map
